@@ -12,7 +12,7 @@ To ensure the images used in the "real image" category where actually authentic 
 ### image of real and ai side-by-side
 <p>
   <img src="sample_ai/1.png" width="360" style="margin-right: 12px;" />
-  <img src="sample_real/1.png" width="400" />
+  <img src="sample_real/1.png" width="440" />
 </p>
 #### The image on the left is an AI generated copy of the image on the right
 
