@@ -20,13 +20,6 @@ To ensure the images used in the "real image" category where actually authentic 
 ## Train and Test Split
 The file `img_split.py` uses a random seed to randomly select a predefined number of files from the real-image folder. These selected filenames become the training set, and the remaining filenames become the test set.
 
-## Dataset (Repo Sample)
-This repository includes a small sample dataset for demonstration:
-- `sample_real/` (4 real photos)
-- `sample_ai/` (4 AI-recreated copies)
-
-The full dataset used in experiments containg the 62 real and 62 AI images is not included in the repo due to file size limits. 
-
 **Important note:** I only split based on the *real* folder, because the AI folder contains the matching “recreated” version of each real image with the exact same filename. So once I have a list of names for train/test, I can grab both:
 - `real/<name>` (label = 0)
 - `ai/<name>` (label = 1)
@@ -35,6 +28,13 @@ In the final version of `img_split.py`, the function looks like this:
 - `img_splt(path, train_size=49, seed=None)` and it will return `(random_names_train, random_names_test)`.
 
 This made it easy to repeat experiments across multiple random splits by changing the seed.
+
+## Dataset (Repo Sample)
+This repository includes a small sample dataset for demonstration:
+- `sample_real/` (4 real photos)
+- `sample_ai/` (4 AI-recreated copies)
+
+The full dataset used in experiments containg the 62 real and 62 AI images is not included in the repo due to file size limits. 
 
 ## Feature Extraction (Embeddings)
 Images are too large to feed directly into a simple model like logistic regression. So the next step is to convert each image into a **fixed-length feature vector** (“embedding”) using a CNN.
@@ -46,8 +46,8 @@ A CNN trained on natural images learns useful visual features (edges, textures, 
 The file `resnet_embedding.py` loads a pretrained **ResNet50** model and removes the final classifier layer so the output becomes a **2048-dimensional feature vector** for each image.
 
 For every filename in the train/test lists, `build_xy(name_list)` does:
-1. Load the REAL image from `data/all/all_photos/real/<name>`
-2. Load the AI image from `data/all/all_photos/ai/<name>`
+1. Load the REAL image from `data/real/<name>`
+2. Load the AI image from `data/ai/<name>`
 3. Run both through ResNet50 (in evaluation mode)
 4. (Optional) normalize the vectors
 5. Append to:
@@ -129,8 +129,8 @@ Because the dataset is small and all AI images come from the same generation met
 A typical workflow is:
 
 1. Place images into the expected folders:
-   - `data/all/all_photos/real/`
-   - `data/all/all_photos/ai/`
+   - `data/real/`
+   - `data/ai/`
 
 2. Generate a train/test split:
    - Use `img_split.py` to get `train_names` and `test_names`
