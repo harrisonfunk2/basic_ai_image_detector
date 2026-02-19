@@ -10,11 +10,21 @@ This is a basic AI image detector which is trained to detect AI images created b
 To ensure the images used in the "real image" category where actually authentic and not AI generated, I used photos I had on my phone that I knew with 100% certanty where not AI generated. I selected to use scenic ocean photos because I had a good amount of these. In order to get an AI version of each image, i added it to a ChatGPT conversation with the prompt "Recreate this image". I then downloaded the image and saved it in a folder with other images generated in the same manner. Each 'real' and AI photo also had the same name, the only way to distinguish between the two was what folder they are located in.
 
 ### image of real and ai side-by-side
-![ai_image-1](sample_ai/1.png | width=100) ![real_image_1](sample_real/1.png | width=100)
+<p>
+  <img src="sample_ai/1.png" width="360" style="margin-right: 12px;" />
+  <img src="sample_real/1.png" width="360" />
+</p>
 #### The image on the left is an AI generated copy of the image on the right
 
 ## Train and Test Split
 The file `img_split.py` uses a random seed to randomly select a predefined number of files from the real-image folder. These selected filenames become the training set, and the remaining filenames become the test set.
+
+## Dataset (Repo Sample)
+This repository includes a small sample dataset for demonstration:
+- `sample_real/` (4 real photos)
+- `sample_ai/` (4 AI-recreated copies)
+
+The full dataset used in experiments containg the 62 real and 62 AI images is not included in the repo due to file size limits. 
 
 **Important note:** I only split based on the *real* folder, because the AI folder contains the matching “recreated” version of each real image with the exact same filename. So once I have a list of names for train/test, I can grab both:
 - `real/<name>` (label = 0)
