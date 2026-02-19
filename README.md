@@ -11,7 +11,7 @@ To ensure the images used in the "real image" category where actually authentic 
 
 ### Image of real and AI side-by-side
 <p>
-  <img src="sample_ai/1.png" width="360" style="margin-right: 100px;" />
+  <img src="sample_ai/1.png" width="360" style="margin-right: 12px;" />
   <img src="sample_real/1.png" width="405" />
 </p>
 
