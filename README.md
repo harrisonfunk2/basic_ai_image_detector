@@ -10,7 +10,7 @@ This is a basic AI image detector which is trained to detect AI images created b
 To ensure the images used in the "real image" category where actually authentic and not AI generated, I used photos I had on my phone that I knew with 100% certanty where not AI generated. I selected to use scenic ocean photos because I had a good amount of these. In order to get an AI version of each image, i added it to a ChatGPT conversation with the prompt "Recreate this image". I then downloaded the image and saved it in a folder with other images generated in the same manner. Each 'real' and AI photo also had the same name, the only way to distinguish between the two was what folder they are located in.
 
 ### image of real and ai side-by-side
-![ai_image-1](sample_ai/1.png) ![real_image_1](sample_real/1.png)
+![ai_image-1](sample_ai/1.png){width=200} ![real_image_1](sample_real/1.png){width=200}
 #### The image on the left is an AI generated copy of the image on the right
 
 ## Train and Test Split
