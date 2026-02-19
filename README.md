@@ -14,6 +14,7 @@ To ensure the images used in the "real image" category where actually authentic 
   <img src="sample_ai/1.png" width="360" style="margin-right: 12px;" />
   <img src="sample_real/1.png" width="405" />
 </p>
+
 ### The image on the left is an AI generated copy of the image on the right
 
 ## Train and Test Split
