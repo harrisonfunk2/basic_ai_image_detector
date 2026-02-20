@@ -134,7 +134,7 @@ Below is an example run using one random train/test split.
 - **ROC curve:** (see plot below)
 
 <p>
-  <img src="data/figures/ROC_plot.png" width="360" 
+  <img src="data/figures/ROC_curve.png" width="360" 
 </p>
 
 > Brief interpretation: the confusion matrix summarizes how many real vs AI images were correctly/incorrectly classified, and the ROC curve/AUC summarizes ranking quality across all thresholds.
