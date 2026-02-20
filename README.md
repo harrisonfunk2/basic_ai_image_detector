@@ -117,15 +117,6 @@ Then I summarized the distribution of AUC scores:
 - Histogram and boxplot of AUC across splits
 
 ## Results
-Overall, this basic approach was able to classify AI vs real scenic ocean images better than random guessing.
-
-Typical results looked like:
-- Accuracy is often around ~0.75–0.85 depending on the split
-- AUC around ~0.86 on average, with noticeable variability across random splits
-
-Because the dataset is small and all AI images come from the same generation method (ChatGPT “recreate this image”), these results should be interpreted as a **proof of concept** rather than a universal AI detector.
-
-## Results
 
 ### Single train/test split (example)
 Below is an example run using one random train/test split.
