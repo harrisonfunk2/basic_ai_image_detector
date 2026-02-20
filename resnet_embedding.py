@@ -25,11 +25,11 @@ def build_xy(name_list):
 
     for name in name_list:
         # REAL image
-        img_real = Image.open(f"data/all/all_photos/real/{name}").convert("RGB")
+        img_real = Image.open(f"data/sample_real/{name}").convert("RGB")
         x_real = preprocess(img_real).unsqueeze(0).to(device)  # (1, 3, H, W)
 
         # AI image 
-        img_ai = Image.open(f"data/all/all_photos/ai/{name}").convert("RGB")
+        img_ai = Image.open(f"data/sample_ai/{name}").convert("RGB")
         x_ai = preprocess(img_ai).unsqueeze(0).to(device)
 
         with torch.no_grad():
@@ -51,7 +51,7 @@ def build_xy(name_list):
     return X, y
 
 
-train_names, test_names = img_split.img_splt("data/all/all_photos/real", train_size=49, seed=123)
+train_names, test_names = img_split.img_splt("data/sample_real", train_size=49, seed=123)
 X_train, y_train = build_xy(train_names)
 X_test, y_test = build_xy(test_names)
 
