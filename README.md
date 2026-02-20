@@ -11,8 +11,8 @@ To ensure the images used in the "real image" category where actually authentic 
 
 ### Image of real and AI side-by-side
 <p>
-  <img src="sample_ai/1.png" width="360" style="margin-right: 12px;" />
-  <img src="sample_real/1.png" width="405" />
+  <img src="data/sample_ai/1.png" width="360" style="margin-right: 12px;" />
+  <img src="data/sample_real/1.png" width="405" />
 </p>
 
 ### The image on the left is an AI generated copy of the image on the right
@@ -124,6 +124,32 @@ Typical results looked like:
 - AUC around ~0.86 on average, with noticeable variability across random splits
 
 Because the dataset is small and all AI images come from the same generation method (ChatGPT “recreate this image”), these results should be interpreted as a **proof of concept** rather than a universal AI detector.
+
+## Results
+
+### Single train/test split (example)
+Below is an example run using one random train/test split.
+
+- **Confusion matrix + classification report:** (see screenshot below)
+- **ROC curve:** (see plot below)
+
+<p>
+  <img src="data/figures/ROC_plot.png" width="360" 
+</p>
+
+> Brief interpretation: the confusion matrix summarizes how many real vs AI images were correctly/incorrectly classified, and the ROC curve/AUC summarizes ranking quality across all thresholds.
+
+### Results across 20 random splits
+To see how sensitive performance is to the random split (since the dataset is small), I repeated the full pipeline 20 times with different seeds.
+
+- **Mean AUC ± SD:** 0.8618 ± 0.0503  
+- **Mean Accuracy ± SD:** 0.7558 ± 0.0615  
+- **95% CI for mean AUC (normal approx):** [0.8398, 0.8839]
+
+Plot below show AUC/accuracy by trial and the distribution of AUC values across splits.
+<p>
+  <img src="data/figures/accuracy.png" width="360" 
+</p>
 
 ## How to Run
 A typical workflow is:
